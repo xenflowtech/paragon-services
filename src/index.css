@@ -1,13 +1,337 @@
+/* Global Mobile Optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  overflow-x: hidden;
 }
 
+/* Prevent background scrolling when mobile menu is open */
+.mobile-menu-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Global spacing scale */
+:root {
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+  /* Vertical rhythm scale (Tailwind-like) */
+  --py-16: 4rem;  /* 64px */
+  --py-20: 5rem;  /* 80px */
+  --py-24: 6rem;  /* 96px */
+  --py-32: 8rem;  /* 128px */
+}
+
+/* Consistent vertical rhythm for sections */
+.page-section {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+/* Tighter vertical spacing option */
+.page-section--tight {
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+/* Remove padding helpers for precise spacing control */
+.page-section--no-top {
+  padding-top: 0;
+}
+
+.page-section--no-bottom {
+  padding-bottom: 0;
+}
+
+/* Default page container spacing */
+.page-container {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* Section rhythm utilities */
+.section-hero { padding-top: 0; padding-bottom: var(--py-32); }
+.section-large { padding-top: var(--py-24); padding-bottom: var(--py-24); }
+.section-medium { padding-top: var(--py-20); padding-bottom: var(--py-20); }
+.section-small { padding-top: var(--py-16); padding-bottom: var(--py-16); }
+
+/* Tighten gap between hero and the next section */
+.section-hero + .section-large,
+.section-hero + .section-medium,
+.section-hero + .section-small {
+  padding-top: 50px;
+}
+
+/* Inner layout helpers */
+.space-text-blocks > * + * { margin-top: 1.5rem; }
+.gap-card-grid { display: grid; gap: 2rem; }
+
+/* Fine-grained padding utilities (px-based for precise tweaks) */
+.section-pt-32 { padding-top: 32px; }
+.section-pt-40 { padding-top: 40px; }
+.section-pt-0 { padding-top: 0; }
+.section-pt-16 { padding-top: 16px; }
+.section-pb-48 { padding-bottom: 48px; }
+.section-pb-40 { padding-bottom: 40px; }
+.section-pb-24 { padding-bottom: 24px; }
+
+/* Offset handling for fixed header: push hero content down without showing page bg */
+.offset-for-header { padding-top: 0; }
+.offset-for-header > .services-hero,
+.offset-for-header > .about-hero,
+.offset-for-header > .industries-hero,
+.offset-for-header > .contact-hero {
+  padding-top: 140px;
+  margin-top: -1px; /* eliminate 1px seam under fixed header */
+}
+@media (max-width: 1024px) {
+  .offset-for-header > .services-hero,
+  .offset-for-header > .about-hero,
+  .offset-for-header > .industries-hero,
+  .offset-for-header > .contact-hero { padding-top: 120px; margin-top: -1px; }
+}
+@media (max-width: 768px) {
+  .offset-for-header > .services-hero,
+  .offset-for-header > .about-hero,
+  .offset-for-header > .industries-hero,
+  .offset-for-header > .contact-hero { padding-top: 120px; margin-top: -1px; }
+  /* Ensure comfortable gap below all hero sections on mobile */
+  .services-hero,
+  .about-hero,
+  .industries-hero,
+  .contact-hero { padding-bottom: 64px; }
+  .offset-for-header > .services-hero,
+  .offset-for-header > .about-hero,
+  .offset-for-header > .industries-hero { padding-top: 120px; margin-top: -1px; }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Prevent horizontal scrolling */
+  * {
+    max-width: 100%;
+  }
+  
+  /* Improve touch targets */
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Optimize text rendering */
+  h1, h2, h3, h4, h5, h6 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Ensure proper spacing for mobile */
+  .container, .content, .page-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Improve form elements on mobile */
+  input, select, textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  /* Better button spacing */
+  button {
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+}
+
+/* Small mobile optimizations */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  /* Ensure buttons are touch-friendly */
+  button {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+  
+  /* Optimize form inputs */
+  input, select, textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+  }
+}
+
+/* Extra small mobile optimizations */
+@media (max-width: 360px) {
+  body {
+    font-size: 13px;
+  }
+  
+  button {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+  
+  input, select, textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Performance optimizations */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Remove default button styles */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* List styles */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Paragraph styles */
+p {
+  margin: 0 0 1rem 0;
+}
+
+/* Code styles */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Utility classes for mobile */
+.mobile-hidden {
+  display: none;
+}
+
+.desktop-hidden {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .mobile-hidden {
+    display: block;
+  }
+  
+  .desktop-hidden {
+    display: none;
+  }
+}
+
+/* Touch-friendly hover states */
+@media (hover: none) and (pointer: coarse) {
+  .hover-effect:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  body {
+    font-size: 15px;
+  }
+  
+  /* Reduce padding in landscape */
+  .container, .content {
+    padding: 1rem;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles can be added here */
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
 }

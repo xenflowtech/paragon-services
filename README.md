@@ -1,46 +1,129 @@
-# Getting Started with Create React App
+# Paragon Services Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A professional website for Paragon Services - Freight Forwarding & Customs Clearance Experts.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Responsive Design**: Works on all devices
+- **Multi-page Navigation**: Home, Services, Industries, About, Contact
+- **Quote Request System**: Popup modal for quote requests
+- **Contact Form**: Functional contact form with email forwarding
+- **Video Background**: Hero section with video background
+- **Professional Styling**: Modern, professional design
 
-### `npm start`
+## Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 2. Email Configuration
 
-### `npm test`
+To enable email functionality, you need to set up Gmail App Password:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Enable 2-Factor Authentication** on your Gmail account
+2. **Generate App Password**:
+   - Go to Google Account Settings
+   - Security → 2-Step Verification → App passwords
+   - Generate a password for "Mail"
+3. **Create .env file** in the project root:
+   ```bash
+   # Create .env file with your email configuration
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASSWORD=your_gmail_app_password_here
+   PORT=5000
+   ```
+   
+   Or set environment variables:
+   ```bash
+   # Windows
+   set EMAIL_USER=your-email@gmail.com
+   set EMAIL_PASSWORD=your_app_password_here
+   
+   # Mac/Linux
+   export EMAIL_USER=your-email@gmail.com
+   export EMAIL_PASSWORD=your_app_password_here
+   ```
 
-### `npm run build`
+### 3. Run the Application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Development Mode (Frontend + Backend)
+```bash
+npm run dev
+```
+This runs both the React frontend (port 3000) and Express backend (port 5000)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Frontend Only
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Backend Only
+```bash
+npm run server
+```
 
-### `npm run eject`
+### 4. Build for Production
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Email Configuration
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application sends emails to:
+- **From**: paraservs498@gmail.com
+- **To**: paraservs498@gmail.com (company email)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Email Templates
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Quote Request Email
+- Subject: "New Quote Request - [Customer Name]"
+- Includes: Name, Email, Phone, Company, Service, Origin, Destination, Cargo Type, Weight, Message
 
-## Learn More
+#### Contact Form Email
+- Subject: "New Contact Form Submission - [Customer Name]"
+- Includes: Name, Email, Phone, Company, Service, Message
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API Endpoints
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `POST /api/quote-request` - Handle quote request submissions
+- `POST /api/contact-form` - Handle contact form submissions
+
+## File Structure
+
+```
+paragon-services/
+├── src/
+│   ├── components/          # React components
+│   │   ├── Header.tsx      # Navigation header
+│   │   ├── Footer.tsx      # Footer component
+│   │   ├── QuoteModal.tsx  # Quote request modal
+│   │   └── ...
+│   ├── pages/              # Page components
+│   │   ├── Home.tsx
+│   │   ├── Services.tsx
+│   │   ├── Contact.tsx
+│   │   └── ...
+│   └── App.tsx            # Main app component
+├── server.js              # Express backend server
+├── package.json           # Dependencies and scripts
+└── README.md             # This file
+```
+
+## Technologies Used
+
+- **Frontend**: React, TypeScript, CSS3
+- **Backend**: Node.js, Express
+- **Email**: Nodemailer
+- **Routing**: React Router DOM
+
+## Contact Information
+
+- **Lahore Office**: 20-F, KHAN TOWER, DEFENCE CHOWK, WALTON ROAD, LAHORE CANTT
+- **Lahore Phone**: 042-36686620-1
+- **Lahore Email**: parasevslhr@yahoo.com
+- **Karachi Office**: F-7, 6th FLOOR, OCEAN CENTRE, OPP. CUSTOM HOUSE, KARACHI
+- **Karachi Phone**: 021-32205730, 32210501
+- **Karachi Email**: paraservs498@gmail.com
+- **CEO**: Zahid Sharif Butt - 0300-8480287

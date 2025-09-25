@@ -1,0 +1,713 @@
+.about-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.about-hero {
+  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  margin-bottom: 32px;
+}
+
+.about-hero h1 {
+  font-size: 2.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.company-overview {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.overview-text h2 {
+  color: #0066cc;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.overview-text p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.stat {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+  color: white;
+  border-radius: 15px;
+}
+
+.stat h3 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.stat p {
+  font-size: 1rem;
+  color: #000;
+}
+
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.mission, .vision {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission h2, .vision h2 {
+  color: #0066cc;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.mission p, .vision p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.team-section {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-section h2 {
+  color: #0066cc;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.team-member {
+  text-align: center;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.member-photo i {
+  font-size: 4rem;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+.member-info h3 {
+  color: #0066cc;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.member-info .position {
+  color: #0066cc;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.member-info .experience {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.member-info .expertise {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.timeline-section {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-section h2 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-year {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 100px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-content {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 0 30px;
+  flex: 1;
+  position: relative;
+}
+
+.timeline-content h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.values-section {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.values-section h2 {
+  color: #0066cc;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.value-item {
+  text-align: center;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+}
+
+.value-item i {
+  font-size: 3rem;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+.value-item h3 {
+  color: #0066cc;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.value-item p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .company-overview {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .mission-vision {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    flex-direction: row !important;
+    margin-left: 50px;
+  }
+  
+  .timeline-year {
+    position: absolute;
+    left: -60px;
+    min-width: 80px;
+    font-size: 1rem;
+  }
+  
+  .timeline-content {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 60px 15px;
+  }
+  
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .about-content {
+    padding: 40px 15px;
+  }
+  
+  .company-overview,
+  .mission,
+  .vision,
+  .team-section,
+  .timeline-section,
+  .values-section {
+    padding: 30px 20px;
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .about-page {
+    padding-top: 80px;
+  }
+  
+  .about-hero {
+    padding: 60px 20px;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-hero p {
+    font-size: 1.1rem;
+  }
+  
+  .about-content {
+    padding: 0 1.5rem;
+  }
+  
+  .company-overview {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .overview-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .mission-vision {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 70px;
+  }
+  
+  .about-hero {
+    padding: 50px 15px;
+    margin-bottom: 36px;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  
+  .about-hero p {
+    font-size: 1rem;
+    max-width: 100%;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  .about-content {
+    padding: 0 1rem;
+  }
+  
+  .company-overview {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .overview-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .overview-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .overview-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat {
+    padding: 15px;
+  }
+  
+  .stat h3 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+  
+  .stat p {
+    font-size: 0.9rem;
+  }
+  
+  .mission-vision {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .mission, .vision {
+    padding: 25px;
+  }
+  
+  .mission h2, .vision h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .mission p, .vision p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .team-section {
+    padding: 30px 20px;
+  }
+  
+  .team-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .team-member {
+    padding: 20px;
+  }
+  
+  .member-photo i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .member-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .member-info .position {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .member-info .experience,
+  .member-info .expertise {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+  
+  .member-info .phone {
+    font-size: 0.9rem;
+  }
+  
+  .values-section {
+    padding: 30px 20px;
+  }
+  
+  .values-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .value-item {
+    padding: 20px;
+  }
+  
+  .value-item i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .value-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .value-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 40px 10px;
+  }
+  
+  .about-hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .about-hero p {
+    font-size: 0.9rem;
+  }
+  
+  .about-content {
+    padding: 0 0.8rem;
+  }
+  
+  .overview-text h2 {
+    font-size: 1.6rem;
+  }
+  
+  .overview-text p {
+    font-size: 0.9rem;
+  }
+  
+  .stat {
+    padding: 12px;
+  }
+  
+  .stat h3 {
+    font-size: 1.8rem;
+  }
+  
+  .stat p {
+    font-size: 0.8rem;
+  }
+  
+  .mission, .vision {
+    padding: 20px;
+  }
+  
+  .mission h2, .vision h2 {
+    font-size: 1.4rem;
+  }
+  
+  .mission p, .vision p {
+    font-size: 0.9rem;
+  }
+  
+  .team-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .team-member {
+    padding: 15px;
+  }
+  
+  .member-photo i {
+    font-size: 2.5rem;
+  }
+  
+  .member-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .values-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .value-item {
+    padding: 15px;
+  }
+  
+  .value-item i {
+    font-size: 2rem;
+  }
+  
+  .value-item h3 {
+    font-size: 1rem;
+  }
+  
+  .value-item p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Mobile Styles */
+@media (max-width: 360px) {
+  .about-hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .about-hero p {
+    font-size: 0.85rem;
+  }
+  
+  .overview-text h2 {
+    font-size: 1.4rem;
+  }
+  
+  .overview-text p {
+    font-size: 0.85rem;
+  }
+  
+  .stat h3 {
+    font-size: 1.6rem;
+  }
+  
+  .stat p {
+    font-size: 0.75rem;
+  }
+  
+  .mission h2, .vision h2 {
+    font-size: 1.3rem;
+  }
+  
+  .mission p, .vision p {
+    font-size: 0.85rem;
+  }
+  
+  .team-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .member-info h3 {
+    font-size: 1rem;
+  }
+  
+  .values-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .value-item h3 {
+    font-size: 0.95rem;
+  }
+  
+  .value-item p {
+    font-size: 0.8rem;
+  }
+} 

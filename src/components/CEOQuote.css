@@ -1,0 +1,319 @@
+.ceo-quote-section {
+  background: white;
+  padding: 5rem 0;
+}
+
+.ceo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.ceo-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.ceo-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ceo-photo {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 3px solid #0066cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ceo-photo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Fallback placeholder styles (in case image doesn't load) */
+.image-placeholder {
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  border: 3px dashed #0066cc;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  text-align: center;
+}
+
+.image-placeholder span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #0066cc;
+}
+
+.image-placeholder p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.ceo-quote {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 20px;
+  border-left: 5px solid #0066cc;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.quote-icon {
+  font-size: 4rem;
+  color: #0066cc;
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  line-height: 1;
+}
+
+.ceo-quote blockquote {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 2rem 0 2rem 0;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.ceo-info {
+  border-top: 2px solid #e9ecef;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ceo-info h3 {
+  color: #0066cc;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.ceo-info p {
+  color: #666;
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
+.ceo-info p:last-child {
+  color: #0066cc;
+  font-weight: 500;
+}
+
+.ceo-contact {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #0066cc;
+}
+
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .ceo-container {
+    padding: 0 1.5rem;
+  }
+  
+  .ceo-content {
+    gap: 3rem;
+  }
+  
+  .ceo-photo {
+    width: 280px;
+    height: 350px;
+  }
+  
+  .image-placeholder {
+    width: 280px;
+    height: 350px;
+  }
+  
+  .ceo-quote {
+    padding: 1.8rem;
+  }
+  
+  .ceo-quote blockquote {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .ceo-quote-section {
+    padding: 3rem 0;
+  }
+  
+  .ceo-container {
+    padding: 0 1rem;
+  }
+  
+  .ceo-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .ceo-image {
+    order: 2;
+  }
+  
+  .ceo-quote {
+    order: 1;
+    padding: 1.5rem;
+  }
+  
+  .ceo-photo {
+    width: 250px;
+    height: 300px;
+  }
+  
+  .image-placeholder {
+    width: 250px;
+    height: 300px;
+  }
+  
+  .ceo-quote blockquote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1.5rem 0 1.5rem 0;
+  }
+  
+  .quote-icon {
+    font-size: 3rem;
+    top: -0.8rem;
+    left: 1.5rem;
+  }
+  
+  .ceo-info {
+    padding-top: 1.2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .ceo-info h3 {
+    font-size: 1.3rem;
+  }
+  
+  .ceo-info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .ceo-quote-section {
+    padding: 2rem 0;
+  }
+  
+  .ceo-container {
+    padding: 0 0.8rem;
+  }
+  
+  .ceo-content {
+    gap: 1.5rem;
+  }
+  
+  .ceo-quote {
+    padding: 1.2rem;
+  }
+  
+  .ceo-photo {
+    width: 200px;
+    height: 250px;
+  }
+  
+  .image-placeholder {
+    width: 200px;
+    height: 250px;
+  }
+  
+  .image-placeholder span {
+    font-size: 1.2rem;
+  }
+  
+  .image-placeholder p {
+    font-size: 0.9rem;
+  }
+  
+  .ceo-quote blockquote {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1.2rem 0 1.2rem 0;
+  }
+  
+  .quote-icon {
+    font-size: 2.5rem;
+    top: -0.6rem;
+    left: 1.2rem;
+  }
+  
+  .ceo-info {
+    padding-top: 1rem;
+    margin-top: 1.2rem;
+  }
+  
+  .ceo-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .ceo-info p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Mobile Styles */
+@media (max-width: 360px) {
+  .ceo-quote {
+    padding: 1rem;
+  }
+  
+  .ceo-photo {
+    width: 180px;
+    height: 220px;
+  }
+  
+  .image-placeholder {
+    width: 180px;
+    height: 220px;
+  }
+  
+  .image-placeholder span {
+    font-size: 1rem;
+  }
+  
+  .image-placeholder p {
+    font-size: 0.8rem;
+  }
+  
+  .ceo-quote blockquote {
+    font-size: 0.9rem;
+    margin: 1rem 0 1rem 0;
+  }
+  
+  .quote-icon {
+    font-size: 2rem;
+    top: -0.5rem;
+    left: 1rem;
+  }
+  
+  .ceo-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .ceo-info p {
+    font-size: 0.8rem;
+  }
+} 
