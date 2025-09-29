@@ -29,9 +29,18 @@ const supabase = createClient(
 // Email configuration (for notifications)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER || 'paraserv@gmail.com',
     pass: process.env.EMAIL_PASSWORD
+  },
+  connectionTimeout: 60000, // 60 seconds
+  greetingTimeout: 30000,   // 30 seconds
+  socketTimeout: 60000,    // 60 seconds
+  tls: {
+    rejectUnauthorized: false
   }
 });
 
