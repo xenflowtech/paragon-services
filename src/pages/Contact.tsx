@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch(`https://your-railway-app-url.railway.app/api/contact-form`, {
+      const response = await fetch(`https://paragon-services-backend.onrender.com/api/contact-form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
