@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 
@@ -27,22 +27,7 @@ const supabase = createClient(
 );
 
 // Email configuration (for notifications)
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER || 'paraserv@gmail.com',
-    pass: process.env.EMAIL_PASSWORD
-  },
-  connectionTimeout: 60000, // 60 seconds
-  greetingTimeout: 30000,   // 30 seconds
-  socketTimeout: 60000,    // 60 seconds
-  tls: {
-    rejectUnauthorized: false
-  }
-});
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Quote request endpoint
 app.post('/api/quote-request', async (req, res) => {
@@ -97,31 +82,31 @@ app.post('/api/quote-request', async (req, res) => {
 
     // Send email notification (optional)
     try {
-    const mailOptions = {
+      const msg = {
+        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
         from: process.env.EMAIL_USER || 'paraserv@gmail.com',
         replyTo: email,
-        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
-      subject: `New Quote Request - ${name}`,
-      html: `
-        <h2>New Quote Request</h2>
-        <p><strong>Customer Email:</strong> ${email}</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-        <p><strong>Service Required:</strong> ${service}</p>
-        <p><strong>Origin:</strong> ${origin || 'Not specified'}</p>
-        <p><strong>Destination:</strong> ${destination || 'Not specified'}</p>
-        <p><strong>Cargo Type:</strong> ${cargoType || 'Not specified'}</p>
-        <p><strong>Weight/Volume:</strong> ${weight || 'Not specified'}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-        <p><strong>Timestamp:</strong> ${timestamp}</p>
-        <hr>
-        <p><em>Reply to this email to respond directly to the customer at: ${email}</em></p>
-      `
-    };
+        subject: `New Quote Request - ${name}`,
+        html: `
+          <h2>New Quote Request</h2>
+          <p><strong>Customer Email:</strong> ${email}</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+          <p><strong>Service Required:</strong> ${service}</p>
+          <p><strong>Origin:</strong> ${origin || 'Not specified'}</p>
+          <p><strong>Destination:</strong> ${destination || 'Not specified'}</p>
+          <p><strong>Cargo Type:</strong> ${cargoType || 'Not specified'}</p>
+          <p><strong>Weight/Volume:</strong> ${weight || 'Not specified'}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+          <p><strong>Timestamp:</strong> ${timestamp}</p>
+          <hr>
+          <p><em>Reply to this email to respond directly to the customer at: ${email}</em></p>
+        `
+      };
 
-    await transporter.sendMail(mailOptions);
+      await sgMail.send(msg);
       console.log('Email notification sent');
     } catch (emailError) {
       console.error('Email notification failed:', emailError);
@@ -183,27 +168,27 @@ app.post('/api/contact-form', async (req, res) => {
 
     // Send email notification (optional)
     try {
-    const mailOptions = {
+      const msg = {
+        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
         from: process.env.EMAIL_USER || 'paraserv@gmail.com',
         replyTo: email,
-        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
-      subject: `New Contact Form Submission - ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Customer Email:</strong> ${email}</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-        <p><strong>Service:</strong> ${service || 'Not specified'}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-        <p><strong>Timestamp:</strong> ${timestamp}</p>
-        <hr>
-        <p><em>Reply to this email to respond directly to the customer at: ${email}</em></p>
-      `
-    };
+        subject: `New Contact Form Submission - ${name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Customer Email:</strong> ${email}</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+          <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+          <p><strong>Service:</strong> ${service || 'Not specified'}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+          <p><strong>Timestamp:</strong> ${timestamp}</p>
+          <hr>
+          <p><em>Reply to this email to respond directly to the customer at: ${email}</em></p>
+        `
+      };
 
-    await transporter.sendMail(mailOptions);
+      await sgMail.send(msg);
       console.log('Email notification sent');
     } catch (emailError) {
       console.error('Email notification failed:', emailError);
