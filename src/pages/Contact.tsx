@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch(`https://paragon-services-backend.onrender.com/api/contact-form`, {
+      const response = await fetch(`https://paragonservice.org/api/contact-form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

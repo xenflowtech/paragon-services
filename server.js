@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const sgMail = require('@sendgrid/mail');
+const nodemailer = require('nodemailer');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 
@@ -27,7 +27,13 @@ const supabase = createClient(
 );
 
 // Email configuration (for notifications)
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const transporter = nodemailer.createTransporter({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER || 'paraserv@gmail.com',
+    pass: process.env.EMAIL_PASSWORD
+  }
+});
 
 // Quote request endpoint
 app.post('/api/quote-request', async (req, res) => {
@@ -82,10 +88,10 @@ app.post('/api/quote-request', async (req, res) => {
 
     // Send email notification (optional)
     try {
-      const msg = {
-        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
+      const mailOptions = {
         from: process.env.EMAIL_USER || 'paraserv@gmail.com',
         replyTo: email,
+        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
         subject: `New Quote Request - ${name}`,
         html: `
           <h2>New Quote Request</h2>
@@ -106,7 +112,7 @@ app.post('/api/quote-request', async (req, res) => {
         `
       };
 
-      await sgMail.send(msg);
+      await transporter.sendMail(mailOptions);
       console.log('Email notification sent');
     } catch (emailError) {
       console.error('Email notification failed:', emailError);
@@ -168,10 +174,10 @@ app.post('/api/contact-form', async (req, res) => {
 
     // Send email notification (optional)
     try {
-      const msg = {
-        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
+      const mailOptions = {
         from: process.env.EMAIL_USER || 'paraserv@gmail.com',
         replyTo: email,
+        to: process.env.EMAIL_USER || 'paraserv@gmail.com',
         subject: `New Contact Form Submission - ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>
@@ -188,7 +194,7 @@ app.post('/api/contact-form', async (req, res) => {
         `
       };
 
-      await sgMail.send(msg);
+      await transporter.sendMail(mailOptions);
       console.log('Email notification sent');
     } catch (emailError) {
       console.error('Email notification failed:', emailError);
