@@ -37,7 +37,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/quote-request', {
+      const response = await fetch(`https://your-railway-app-url.railway.app/api/quote-request`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
