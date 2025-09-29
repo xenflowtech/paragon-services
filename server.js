@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
-app.use(express.static(path.join(__dirname, 'build')));
+// Removed static file serving for backend-only deployment
 
 // Increase header size limit
 app.use((req, res, next) => {
@@ -339,10 +339,7 @@ app.patch('/api/contacts/:id', async (req, res) => {
   }
 });
 
-// Serve React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// Backend-only deployment - no frontend serving
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
