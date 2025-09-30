@@ -1,6 +1,6 @@
 .call-to-action-section {
   background: white;
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .call-to-action-container {
@@ -97,7 +97,7 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
   .call-to-action-section {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
   }
   
   .call-to-action-container {
@@ -142,7 +142,7 @@
 /* Small Mobile Styles */
 @media (max-width: 480px) {
   .call-to-action-section {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
   }
   
   .call-to-action-container {

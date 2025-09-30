@@ -85,7 +85,7 @@ const About: React.FC = () => {
             {teamMembers.map((member, index) => (
               <div key={index} className="team-member">
                 <div className="member-photo">
-                  <i className="fas fa-user-circle"></i>
+                  <img src="/ceo-photo.jpg" alt={member.name} />
                 </div>
                 <div className="member-info">
                   <h3>{member.name}</h3>

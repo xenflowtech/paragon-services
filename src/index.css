@@ -33,14 +33,14 @@ body {
 :root {
   --space-xs: 0.5rem;
   --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 4rem;
-  /* Vertical rhythm scale (Tailwind-like) */
-  --py-16: 4rem;  /* 64px */
-  --py-20: 5rem;  /* 80px */
-  --py-24: 6rem;  /* 96px */
-  --py-32: 8rem;  /* 128px */
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  /* Vertical rhythm scale (Tailwind-like) - Reduced for better balance */
+  --py-16: 1.5rem;  /* 24px - reduced from 40px */
+  --py-20: 2rem;    /* 32px - reduced from 48px */
+  --py-24: 2.5rem;   /* 40px - reduced from 56px */
+  --py-32: 3rem;     /* 48px - reduced from 64px */
 }
 
 /* Consistent vertical rhythm for sections */
@@ -71,7 +71,7 @@ body {
 }
 
 /* Section rhythm utilities */
-.section-hero { padding-top: 0; padding-bottom: var(--py-32); }
+.section-hero { padding-top: 0; padding-bottom: var(--py-16); }
 .section-large { padding-top: var(--py-24); padding-bottom: var(--py-24); }
 .section-medium { padding-top: var(--py-20); padding-bottom: var(--py-20); }
 .section-small { padding-top: var(--py-16); padding-bottom: var(--py-16); }
@@ -80,7 +80,7 @@ body {
 .section-hero + .section-large,
 .section-hero + .section-medium,
 .section-hero + .section-small {
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 /* Inner layout helpers */
@@ -116,11 +116,11 @@ body {
   .offset-for-header > .about-hero,
   .offset-for-header > .industries-hero,
   .offset-for-header > .contact-hero { padding-top: 120px; margin-top: -1px; }
-  /* Ensure comfortable gap below all hero sections on mobile */
+  /* Reduced gap below all hero sections on mobile */
   .services-hero,
   .about-hero,
   .industries-hero,
-  .contact-hero { padding-bottom: 64px; }
+  .contact-hero { padding-bottom: 8px; }
   .offset-for-header > .services-hero,
   .offset-for-header > .about-hero,
   .offset-for-header > .industries-hero { padding-top: 120px; margin-top: -1px; }
@@ -132,6 +132,11 @@ body {
     font-size: 16px;
     line-height: 1.5;
   }
+  
+  /* Reduce section spacing on mobile for better balance */
+  .section-large { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .section-medium { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  .section-small { padding-top: 1rem; padding-bottom: 1rem; }
   
   /* Prevent horizontal scrolling */
   * {

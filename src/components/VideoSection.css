@@ -29,6 +29,52 @@
   left: 0;
   z-index: 1;
   display: block;
+  transition: opacity 0.5s ease;
+}
+
+.background-video.loading {
+  opacity: 0;
+}
+
+.background-video.loaded {
+  opacity: 1;
+}
+
+/* Loading spinner styles */
+.video-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #0066cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.video-loading p {
+  font-size: 1rem;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Video fallback styles */
+.video-fallback {
+  z-index: 1;
 }
 
 .video-overlay {

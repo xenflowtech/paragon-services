@@ -52,6 +52,44 @@ const Header: React.FC = () => {
     setAboutDropdown(false);
   };
 
+  // Handle swipe to close on mobile
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      const startY = e.touches[0].clientY;
+      const startX = e.touches[0].clientX;
+      
+      const handleTouchMove = (e: TouchEvent) => {
+        const currentY = e.touches[0].clientY;
+        const currentX = e.touches[0].clientX;
+        const deltaY = currentY - startY;
+        const deltaX = currentX - startX;
+        
+        // If swiping down more than 100px and not swiping horizontally
+        if (deltaY > 100 && Math.abs(deltaX) < 50) {
+          closeMobileMenu();
+          document.removeEventListener('touchmove', handleTouchMove);
+          document.removeEventListener('touchend', handleTouchEnd);
+        }
+      };
+      
+      const handleTouchEnd = () => {
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+      };
+      
+      document.addEventListener('touchmove', handleTouchMove);
+      document.addEventListener('touchend', handleTouchEnd);
+    };
+
+    document.addEventListener('touchstart', handleTouchStart);
+    
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
@@ -128,6 +166,16 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation Menu */}
         <nav className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
+          {/* Mobile Menu Header with Close Button */}
+          <div className="mobile-nav-header">
+            <div className="mobile-nav-logo">
+              <img src="/logo.png" alt="Paragon Services" className="mobile-logo-image" />
+            </div>
+            <button className="mobile-close-btn" onClick={closeMobileMenu}>
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+          
           <ul>
             <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>Home</Link></li>
             <li>
